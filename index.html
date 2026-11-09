@@ -6,63 +6,50 @@
 <title>Clinician homepage (Copy)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
-  --bg: #eef3f3; --surface: #ffffff; --ink: #11262b; --muted: #5a6f74; --line: #d6e0e1;
-  --teal: #0b7a75; --teal-soft: #dcf0ee; --amber: #a35f00; --amber-soft: #fbeccf;
-  --coral: #b63a28; --coral-soft: #f9dfda; --track: #e2eaeb; --focus: #1d5fd1; --on-teal: #ffffff;
+  --bg: #eef1f8; --surface: #ffffff; --ink: #14213d; --muted: #5b6478; --line: #dde2ee;
+  --teal: #2f7a58; --teal-soft: #e1f1e9; --amber: #9a5a00; --amber-soft: #fbeccf;
+  --coral: #b63a28; --coral-soft: #f9dfda; --track: #e4e8f2; --focus: #1d5fd1; --on-teal: #ffffff;
+  --navy: #1e3a5f; --blue: #3d7ab8;
   color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0c1a1d; --surface: #13262a; --ink: #e8f1f1; --muted: #93a9ad; --line: #28403f;
-    --teal: #4fc9c0; --teal-soft: #17413f; --amber: #f0b45a; --amber-soft: #3b2d12;
-    --coral: #ff8f7d; --coral-soft: #44211b; --track: #22393c; --focus: #8ab4ff; --on-teal: #06201e;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0c1a1d; --surface: #13262a; --ink: #e8f1f1; --muted: #93a9ad; --line: #28403f;
-  --teal: #4fc9c0; --teal-soft: #17413f; --amber: #f0b45a; --amber-soft: #3b2d12;
-  --coral: #ff8f7d; --coral-soft: #44211b; --track: #22393c; --focus: #8ab4ff; --on-teal: #06201e;
-  color-scheme: dark;
 }
 html { scroll-padding-top: env(safe-area-inset-top, 0px); }
 *, *::before, *::after { box-sizing: inherit; }
-body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.5; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.5; }
 button { font: inherit; color: inherit; cursor: pointer; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 6px; }
-h1, h2 { font-family: "Bricolage Grotesque", "Public Sans", sans-serif; letter-spacing: -0.015em; margin: 0; }
+h1, h2 { font-family: "Inter", system-ui, sans-serif; letter-spacing: -0.015em; margin: 0; }
 
 .wrap { max-width: 1040px; margin: 0 auto; padding: 24px 16px 48px; }
 .top { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; justify-content: space-between; margin-bottom: 18px; }
 .top h1 { font-size: clamp(22px, 3.4vw, 30px); line-height: 1.2; font-weight: 700; }
 .top p { margin: 6px 0 0; color: var(--muted); }
-.caseload { border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 9px 16px; font-weight: 500; }
-.caseload:hover { border-color: var(--teal); }
+.caseload { border: 1px solid var(--navy); background: var(--navy); color: #fff; border-radius: 12px; padding: 9px 18px; font-weight: 600; }
+.caseload:hover { background: var(--blue); border-color: var(--blue); }
 
 .grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 16px; align-items: start; }
 @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 2px 10px rgba(30,58,95,.06); }
 
 /* tasks */
 .tasks { padding: 22px 22px 14px; }
 .progress { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
 .progress .bar { flex: 1; height: 10px; background: var(--track); border-radius: 99px; overflow: hidden; }
 .progress .fill { height: 100%; background: var(--teal); border-radius: 99px; transition: width .4s ease; }
-.progress strong { font-family: "Bricolage Grotesque", sans-serif; font-size: 18px; white-space: nowrap; }
+.progress strong { font-size: 18px; white-space: nowrap; }
 
 .filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
 .filters button { border: 1px solid var(--line); background: transparent; border-radius: 99px; padding: 4px 12px; font-size: 13px; color: var(--muted); font-weight: 500; }
-.filters button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.filters button[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
 
 .group { margin-top: 18px; }
 .group h2 { font-size: 16px; display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
-.group h2 .n { font-family: "Public Sans", sans-serif; font-size: 12px; font-weight: 600; background: var(--track); color: var(--muted); border-radius: 99px; padding: 1px 8px; }
+.group h2 .n { font-size: 12px; font-weight: 600; background: var(--track); color: var(--muted); border-radius: 99px; padding: 1px 8px; }
 .group.overdue h2 { color: var(--coral); }
 .group.overdue h2 .n { background: var(--coral-soft); color: var(--coral); }
 
@@ -95,8 +82,8 @@ h1, h2 { font-family: "Bricolage Grotesque", "Public Sans", sans-serif; letter-s
 .metric { padding: 12px 0; border-top: 1px solid var(--line); }
 .mtop { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
 .mname { font-weight: 600; font-size: 14px; }
-.mval { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.02em; white-space: nowrap; }
-.mval small { font-family: "Public Sans", sans-serif; font-weight: 400; font-size: 12px; color: var(--muted); margin-left: 3px; }
+.mval { font-weight: 700; font-size: 22px; letter-spacing: -0.02em; white-space: nowrap; }
+.mval small { font-weight: 400; font-size: 12px; color: var(--muted); margin-left: 3px; }
 .mbar { position: relative; height: 7px; background: var(--track); border-radius: 99px; margin: 9px 0 6px; }
 .mfill { position: absolute; inset: 0 auto 0 0; border-radius: 99px; background: var(--teal); transition: width .5s ease; }
 .mfill.near { background: var(--amber); }
